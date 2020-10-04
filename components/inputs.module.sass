@@ -1,0 +1,191 @@
+.simpleInput
+	border-bottom: 1px solid #364F59
+	position: relative
+
+	input, .dropDownContent, textarea
+		border: none
+		background: none
+		width: 100%
+		padding: 0.6em 30px
+
+		line-height: 1.5em
+		border-radius: 7px
+		outline: none
+		resize: none
+
+	input, label, textarea
+		font-size: 1rem
+
+	label
+		position: absolute
+		color: #96A7AF
+		pointer-events: none
+		left: 20px
+		line-height: 1em
+		top: 0.85em
+		padding: 0 10px
+		transition: transform 0.15s
+		background-color: #21333A
+		transform-origin: 0 0
+
+	&:focus-within
+		border-color: #26B57B
+
+		label
+			color: #26B57B
+			transform: translate(0, -22px) scale(0.85)
+
+	&.active, &.dropDown
+		label
+			transform: translate(0, -22px) scale(0.85)
+
+	&.errored
+		border-color: #FF1010
+		label
+			color: #FF1010
+
+	.error
+		position: absolute
+		font-size: 0.8rem
+		color: #FF2323
+		top: 102%
+		left: 10px
+
+	.button
+		position: absolute
+		right: 0
+		top: 0
+		transform: rotate(180deg)
+		height: 2.7em
+		width: 2.5em
+		padding: 0 0.4em
+		color: #6A6A6A
+		transition: 0.2s transform 
+
+	svg
+		position: absolute
+		top: 50%
+		height: 24px
+		margin-top: -13px
+		z-index: 5
+		pointer-events: none
+
+	&.dropDown
+		padding-right: 35px
+		.dropDownContent
+			white-space: pre
+			overflow: hidden
+			text-overflow: ellipsis
+			
+		&.active
+			border-radius: 7px 7px 0 0
+
+			.button
+				transform: rotate(0deg)
+
+		&:hover
+			cursor: pointer
+			border-color: #454545
+			color: #262626
+
+			svg, label
+				color: #262626
+
+	.dropDownOptions
+		position: absolute
+		z-index: 5
+		background-color: white
+		width: 100%
+		left: 0
+		right: 0
+		box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3)
+		border-radius: 0 0 10px 10px
+		display: none
+		overflow-y: auto
+		max-height: 200px
+
+		button
+			border: none 
+			background: none
+			padding: 10px 20px 
+			display: block
+			width: 100%
+			height: 100%
+			text-align: left
+			font-size: 0.95rem
+
+			&:hover
+				background-color: #ECECEC
+				cursor: pointer
+
+	&.active
+		.dropDownOptions
+			display: block
+
+.simpleButton
+	background-color: #26B57B
+	user-select: none
+	color: white
+	padding: 0 30px
+	line-height: 55px
+	font-size: inherit
+	border: none
+	overflow: hidden
+	position: relative
+	border-radius: 7px
+
+	&:hover
+		cursor: pointer
+
+@keyframes ripple 
+	from 
+		transform: scale(0)
+		opacity: 0
+
+	20%
+		opacity: 1	
+	to 
+		transform: scale(3)
+		opacity: 0
+
+.ripple
+	background-color: rgba(0, 0, 0, 0.3)
+	position: absolute
+	animation: ripple 0.7s linear
+	border-radius: 50%
+	opacity: 0
+	pointer-events: none
+
+.group
+
+	.button
+		border: none
+		background-color: #F0F0F0
+		padding: 12px 12px
+		transition: background-color 0.2s
+
+		&:hover
+			background-color: #E5E5E5
+			cursor: pointer
+
+		&.active
+			background-color: #DA251C
+			color: white
+			box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.15)
+
+		&:first-child
+			border-radius: 7px 0 0 7px
+
+		&:last-child
+			border-radius: 0 7px 7px 0
+
+
+.check
+	display: flex
+	align-items: center
+	font-weight: 500
+	svg 
+		margin-right: 5px
+	margin-bottom: 10px
+
+		
